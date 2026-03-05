@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Auth Pages
+import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 
@@ -30,95 +31,96 @@ function App() {
     <Router>
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
         {/* Dashboard Routes */}
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           element={
             <ProtectedRoute>
               <Dashboard />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/analytics" 
+        <Route
+          path="/analytics"
           element={
             <ProtectedRoute>
               <Analytics />
             </ProtectedRoute>
-          } 
+          }
         />
 
         {/* Invoice Routes */}
-        <Route 
-          path="/invoices" 
+        <Route
+          path="/invoices"
           element={
             <ProtectedRoute>
               <InvoiceList />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/create-invoice" 
+        <Route
+          path="/create-invoice"
           element={
             <ProtectedRoute>
               <CreateInvoice />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/edit-invoice/:id" 
+        <Route
+          path="/edit-invoice/:id"
           element={
             <ProtectedRoute>
               <EditInvoice />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/invoice/:id" 
+        <Route
+          path="/invoice/:id"
           element={
             <ProtectedRoute>
               <InvoiceView />
             </ProtectedRoute>
-          } 
+          }
         />
 
         {/* Client Routes */}
-        <Route 
-          path="/clients" 
+        <Route
+          path="/clients"
           element={
             <ProtectedRoute>
               <ClientList />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/add-client" 
+        <Route
+          path="/add-client"
           element={
             <ProtectedRoute>
               <AddClient />
             </ProtectedRoute>
-          } 
+          }
         />
 
         {/* Payments & Settings */}
-        <Route 
-          path="/payments" 
+        <Route
+          path="/payments"
           element={
             <ProtectedRoute>
               <PaymentPage />
             </ProtectedRoute>
-          } 
+          }
         />
-        <Route 
-          path="/settings" 
+        <Route
+          path="/settings"
           element={
             <ProtectedRoute>
               <Settings />
             </ProtectedRoute>
-          } 
+          }
         />
       </Routes>
     </Router>
